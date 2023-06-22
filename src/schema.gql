@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  id: ID!
+  name: String!
+  slug: String!
+  seller: String!
+  imageUrl: String!
+  price: Float!
+  type: ProductType
+  stock: Int
+  rentType: RentType
+  latitude: Float
+  longitude: Float
+}
+
+enum ProductType {
+  SIMPLE
+  RENTABLE
+  SPACE
+}
+
+enum RentType {
+  PER_HOUR
+  PER_NIGHT
+}
+
+type RentalPeriod {
+  id: ID!
+  product: Product!
+  startDate: DateTime!
+  endDate: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  products(id: String, type: ProductType): [Product!]!
+  product(id: ID!): Product!
+  rentalPeriods(productId: String, startDate: Int): [RentalPeriod!]!
+}
