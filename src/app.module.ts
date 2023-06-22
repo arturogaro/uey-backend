@@ -19,7 +19,7 @@ import { SeederModule } from './seeder/seeder.module';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     MongooseModule.forRoot(
-      `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_URL}:27017`,
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_URL}/?retryWrites=true&w=majority`,
     ),
     ProductModule,
     RentalPeriodModule,
