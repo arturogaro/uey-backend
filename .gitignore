@@ -37,3 +37,4 @@ lerna-debug.log*
 .env
 .aws
 mongodb
+.vercel
