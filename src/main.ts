@@ -8,6 +8,6 @@ async function bootstrap() {
     methods: ['GET'],
   });
 
-  await app.listen(8081);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
